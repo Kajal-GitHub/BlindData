@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class Login extends AppCompatActivity {
-Button btn_login;
+Button btn_login ,btn_voice;
 SQLiteDatabase db;
 SQLiteOpenHelper openHelper;
 EditText email,pass;
@@ -46,6 +48,16 @@ Cursor cursor;
 
                     }
                 }
+            }
+        });
+
+
+        btn_voice =(Button)findViewById(R.id.voice);
+        btn_voice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, SpeechToText.class);
+                startActivity(intent);
             }
         });
     }
